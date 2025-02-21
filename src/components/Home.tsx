@@ -3,6 +3,7 @@ import { Search } from "./Search";
 import { getCity, getWeather } from "../lib/api-calls";
 import { parseWeatherData } from "../lib/utils";
 import { ChartWrapper } from "./Chart/ChartWrapper";
+import { Loader } from "../ui-lib/Loader";
 
 async function handleSubmit(
   formState: SearchFormStateType | null,
@@ -17,7 +18,6 @@ async function handleSubmit(
       data: null,
     };
 
-  console.log(search);
   const cityName = search.toLowerCase();
   try {
     const cityData = await getCity(cityName);
@@ -46,11 +46,11 @@ async function handleSubmit(
 
 export function Home() {
   const [state, action, pending] = useActionState(handleSubmit, null);
-
   return (
     <div className="flex gap-5 md:gap-10 h-[100dvh] flex-col p-4  md:p-6">
       <Search action={action} pending={pending} />
-      {state?.data && (
+      {pending && <Loader />}
+      {state?.data && !pending && (
         <ChartWrapper
           cityName={state.data.cityName}
           data={state.data.weatherData}

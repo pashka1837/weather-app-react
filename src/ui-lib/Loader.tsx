@@ -3,13 +3,13 @@ type LoaderProps = {
   h?: number;
 };
 
-export function Loader({ w = 12, h = 12 }: LoaderProps) {
+export function Loader({ w = 10, h = 10 }: LoaderProps) {
   return (
-    <div className="text-left rtl:text-right">
-      <div role="status">
+    <div className="flex items-center h-[100%] ml-auto mr-auto">
+      <div className="w-[50px] h-[50px]">
         <svg
           aria-hidden="true"
-          className={`w-${w} h-${h} text-gray-200 animate-spin dark:text-gray-400 fill-teal-400`}
+          className={`inline w-${w} h-${h} text-gray-200 animate-spin dark:text-gray-400 fill-teal-400`}
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,6 @@ export function Loader({ w = 12, h = 12 }: LoaderProps) {
             fill="currentFill"
           />
         </svg>
-        <span className="sr-only">Loading...</span>
       </div>
     </div>
   );

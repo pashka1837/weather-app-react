@@ -30,3 +30,7 @@ export function parseWeatherData(
     };
   });
 }
+
+export function parseHoursToNum(time: string) {
+  return Number(time.split(":")[0]);
+}
