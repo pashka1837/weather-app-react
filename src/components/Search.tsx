@@ -10,7 +10,7 @@ export function Search({ action, pending }: SearchFormProps) {
       className="flex gap-2 items-end mr-auto ml-auto w-[100%] sm:w-[80%] lg:w-[50%]"
     >
       <div className="flex flex-col gap-1 w-[100%]">
-        <label htmlFor="search" className="text-xs">
+        <label htmlFor="search" className="text-xs sm:text-sm">
           Название города
         </label>
         <input

@@ -89,26 +89,3 @@ export function Chart({ data, unit, time }: ChartProps) {
     </ResponsiveContainer>
   );
 }
-
-{
-  /* <Line
-type="monotone"
-dataKey={"pressure"}
-stroke="#82ca9d"
-// hide
-activeDot={false}
-/>
-{Object.entries(dataOptions).map(([key, val]) => {
-return (
-  <Line
-    type="monotone"
-    dataKey={val.dataKey}
-    stroke={val.color}
-    unit={val.sign}
-    name={val.name}
-    activeDot={key === unit}
-    strokeWidth={key === unit ? 1 : 0}
-  />
-);
-})} */
-}
