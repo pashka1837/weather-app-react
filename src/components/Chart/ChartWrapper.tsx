@@ -9,7 +9,7 @@ type ChartWrapperProps = {
   cityName: string;
 };
 
-export function ChartWrapper({ data, cityName }: ChartWrapperProps) {
+export default function ChartWrapper({ data, cityName }: ChartWrapperProps) {
   const [unit, setUnit] = useState<UnitType>(UnitType.TEMP);
   const [time, setTime] = useState<TimeType>(TimeType.DAY);
   return (
@@ -21,7 +21,6 @@ export function ChartWrapper({ data, cityName }: ChartWrapperProps) {
         <UnitSelector curUnit={unit} setUnit={setUnit} />
         <TimeSelector curTime={time} setTime={setTime} />
       </div>
-
       <Chart data={data} time={time} unit={unit} />
     </>
   );

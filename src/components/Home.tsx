@@ -1,9 +1,10 @@
-import { useActionState } from "react";
+import { lazy, Suspense, useActionState } from "react";
 import { Search } from "./Search";
 import { getCity, getWeather } from "../lib/api-calls";
 import { parseWeatherData } from "../lib/utils";
-import { ChartWrapper } from "./Chart/ChartWrapper";
 import { Loader } from "../ui-lib/Loader";
+
+const ChartWrapper = lazy(() => import("./Chart/ChartWrapper"));
 
 async function handleSubmit(
   formState: SearchFormStateType | null,
@@ -27,6 +28,7 @@ async function handleSubmit(
       dailyWeatherData.city.timezone
     );
     return {
+      ...formState,
       success: true,
       msg: "",
       data: {
@@ -51,10 +53,12 @@ export function Home() {
       <Search action={action} pending={pending} />
       {pending && <Loader />}
       {state?.data && !pending && (
-        <ChartWrapper
-          cityName={state.data.cityName}
-          data={state.data.weatherData}
-        />
+        <Suspense fallback={<Loader />}>
+          <ChartWrapper
+            cityName={state.data.cityName}
+            data={state.data.weatherData}
+          />
+        </Suspense>
       )}
     </div>
   );
