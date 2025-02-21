@@ -27,6 +27,7 @@ type HourlyWeatherDataType = {
   day: string;
   time: string;
   date: string;
+  humidity: number;
 };
 
 type WeatherDataType = {

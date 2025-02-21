@@ -42,30 +42,6 @@ export function Chart({ data, unit, time }: ChartProps) {
     });
 
     return Object.values(dataByDays).map((ar) => {
-      // if (ar.length !== 8)
-      // return ar.reduce((med, cur, i) => {
-      //   if (i === ar.length - 1)
-      //     return {
-      //       ...med,
-      //       temp: Number((med.temp / ar.length).toFixed(2)),
-      //       wind: Number((med.wind / ar.length).toFixed(2)),
-      //       pressure: Number((med.pressure / ar.length).toFixed(2)),
-      //       rain: Number((med.rain / ar.length).toFixed(2)),
-      //       snow: Number((med.snow / ar.length).toFixed(2)),
-      //       date: cur.day,
-      //     };
-      //   return {
-      //     ...med,
-      //     temp: med.temp + cur.temp,
-      //     wind: med.wind + cur.wind,
-      //     pressure: med.pressure + cur.pressure,
-      //     rain: med.rain + cur.rain,
-      //     snow: med.snow + cur.snow,
-      //   };
-      // }, ar[0]);
-      // const dayData = ar.find(
-      //   (d) => d.time === "12:00" || d.time === "13:00" || d.time === "14:00"
-      // );
       const dayData = ar.find(
         (d) => !!availableDayTimes.find((t) => t === d.time)
       );
@@ -84,14 +60,6 @@ export function Chart({ data, unit, time }: ChartProps) {
         };
       const medianTime = Math.floor((ar.length - 1) / 2);
       return { ...ar[medianTime], date: ar[medianTime].day };
-
-      // if(!dayData && i === origAr.length-1) return {
-
-      // }
-      // const medianD = Math.floor((ar.length - 1) / 2);
-      // return dayData
-      //   ? { ...dayData, date: dayData.day }
-      //   : { ...ar[medianD], date: ar[medianD].day };
     });
   }, [time, data]);
 

@@ -32,6 +32,7 @@ export function CustomTooltip({
       <p className="text-amber-500">{`Температура: ${curTimeData.temp}  \u2103`}</p>
       <p className="text-indigo-500">{`Давление: ${curTimeData.pressure} \u3371`}</p>
       <p className="text-teal-500">{`Ветер: ${curTimeData.wind} м/с`}</p>
+      <p className="text-emerald-500">{`Влажность: ${curTimeData.humidity} %`}</p>
       <p className="text-blue-500">{`Дождь: ${curTimeData.rain} мм`}</p>
       <p className="text-rose-500">{`Снег: ${curTimeData.snow} мм`}</p>
     </div>

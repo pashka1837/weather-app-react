@@ -22,6 +22,7 @@ export function parseWeatherData(
       temp: d.main.temp,
       wind: d.wind.speed,
       pressure: d.main.pressure,
+      humidity: d.main.humidity,
       rain: d.rain ? d.rain["3h"] : 0,
       snow: d.snow ? d.snow["3h"] : 0,
       day,
